@@ -19,10 +19,12 @@
 <div id="map"></div>
 <script>
 	var map;
-	var parks = [
-		{"park":"Yellowstone","coords":[44.4280,-110.5885]},
-		{"park":"Glacier","coords":[48.7596, -113.7870]}
-        {"College":"Lambton College","coords":[43.773369, -79.335968]}
+	var myPlaces = [
+		{"myPlaces":"New York","coords":[40.717659, -74.013986]},
+		{"myPlaces":"Los Angeles","coords":[34.056829, -118.219163]},
+        {"myPlaces":"Lambton College","coords":[43.773369, -79.335968]},
+        {"myPlaces":"My School","coords":[17.392401, 78.476699]},
+        
 		];
 
 	function initMap() {
@@ -32,17 +34,17 @@
 			mapTypeId: 'terrain'
 		});
 
-		mashParks(parks);
+		mashParks(myPlaces);
 	}
 
 	function mashParks(results) {
 	for (var i = 0; i < results.length; i++) {
 		var coords = results[i].coords;
-		var latLng = new google.maps.LatLng(coords[0], coords[1]);
+		var latLng = new google.maps.LatLng(coords[0], coords[1], coords[2], coords[3], coords[4], coords[5]  );
 		var marker = new google.maps.Marker({
 			position: latLng,
 			map: map,
-			label:results[i].park
+			label:results[i].myPlaces
 			});
 		}
 	}
